@@ -8,12 +8,14 @@ import EnquiryForm from "@/components/EnquiryForm";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import VisionMission from "@/components/VisionMission"
 
 const Index = () => (
   <>
     <Navbar />
     <Hero />
     <About />
+    <VisionMission />
     <Amenities />
     <Packages />
     <Gallery />

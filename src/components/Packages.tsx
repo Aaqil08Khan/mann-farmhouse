@@ -6,28 +6,41 @@ import { WHATSAPP_NUMBER } from "@/constants/data";
 
 const packages = [
   {
-    tier: "Day Trip",
-    name: "Day Outing",
-    price: "1,500",
+    tier: "Day Experience",
+    name: "12 Hour Package",
+    price: "1,999",
     unit: "/ person",
-    features: ["Full day access (9am–6pm)", "Welcome drinks", "Lunch included", "Pool & games access", "Garden & lawn use"],
+    duration: "9:00 AM – 9:00 PM",
+    features: [
+      "Full day farmhouse access",
+      "Welcome drinks on arrival",
+      "Breakfast + Lunch + Evening Snacks",
+      "Swimming pool access",
+      "Indoor & outdoor games",
+      "Garden, lawn & bonfire area",
+      "Music system access",
+      "Ample parking included",
+    ],
     popular: false,
   },
   {
     tier: "Best Value",
-    name: "Overnight Stay",
-    price: "3,500",
+    name: "24 Hour Package",
+    price: "3,999",
     unit: "/ person",
-    features: ["Check-in 2pm, check-out 11am", "Dinner + Breakfast", "Bonfire night", "Pool & all amenities", "Room accommodation", "DJ system access"],
+    duration: "Check-in 12PM – Check-out 12PM",
+    features: [
+      "Overnight AC room accommodation",
+      "Welcome drinks on arrival",
+      "Breakfast + Lunch + Dinner",
+      "Swimming pool & all amenities",
+      "Bonfire night with music",
+      "Indoor & outdoor games",
+      "DJ system access",
+      "Nature trails & garden access",
+      "Ample parking included",
+    ],
     popular: true,
-  },
-  {
-    tier: "Premium",
-    name: "Weekend Retreat",
-    price: "8,000",
-    unit: "/ person",
-    features: ["2 nights, 3 days", "All meals included", "Private event space", "Dedicated staff", "Bonfire + BBQ nights", "Photography spots"],
-    popular: false,
   },
 ];
 
@@ -36,9 +49,9 @@ const Packages = () => {
 
   return (
     <section id="packages" className="bg-cream py-20 md:py-28">
-      <div ref={ref} className="max-w-7xl mx-auto px-6">
+      <div ref={ref} className="max-w-5xl mx-auto px-6">
         <SectionHeader label="Packages" heading="Choose Your Experience" />
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
@@ -53,23 +66,37 @@ const Packages = () => {
                   Most Popular
                 </div>
               )}
-              <span className="font-label italic text-gold text-sm">{pkg.tier}</span>
-              <h3 className="font-display text-[32px] font-bold text-forest mt-1 mb-2">{pkg.name}</h3>
+              <span className="font-label italic text-gold text-sm">
+                {pkg.tier}
+              </span>
+              <h3 className="font-display text-[32px] font-bold text-forest mt-1 mb-1">
+                {pkg.name}
+              </h3>
+              <p className="font-body text-sm text-text-soft mb-4">
+                🕐 {pkg.duration}
+              </p>
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="font-display text-[56px] font-bold text-gold">₹{pkg.price}</span>
-                <span className="font-body text-text-soft text-base">{pkg.unit}</span>
+                <span className="font-display text-[56px] font-bold text-gold">
+                  ₹{pkg.price}
+                </span>
+                <span className="font-body text-text-soft text-base">
+                  {pkg.unit}
+                </span>
               </div>
               <div className="w-full h-px bg-gold/30 mb-6" />
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                    <span className="font-body text-sm text-text-soft">{f}</span>
+                    <span className="font-body text-sm text-text-soft">
+                      {f}
+                    </span>
                   </li>
                 ))}
               </ul>
+
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi! I'm interested in the ${pkg.name} package.`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi! I'm interested in the ${pkg.name} at Mann Farmhouse.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-gold text-forest font-body font-bold uppercase tracking-wider text-sm h-12 rounded-full flex items-center justify-center hover:bg-gold-light transition-colors"
